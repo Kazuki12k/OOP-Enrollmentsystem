@@ -3,21 +3,26 @@ package org.example;
 public class Student {
 
 
-    String studentname;
-    int studentidnumber;
-    String studentprogram;
+    String StudentName;
+    int StudentIDnumber;
+    String StudentProgram;
 
     }
     public Student() {
 
     }
-    public
+
     public Student(int IDnumber, String Name, String Program){
 
-        studentidnumber = IDnumber;
-        studentname = Name;
-        studentprogram = Program;
+        StudentIDnumber = IDnumber;
+        StudentName = Name;
+        StudentProgram = Program;
 
     }
+    public String getStudentName() {
+        return Name;
+    }
+    public int getIDnumber() {
 
-}
+        return IDnumber;
+    }
