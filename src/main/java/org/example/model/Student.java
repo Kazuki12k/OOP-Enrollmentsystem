@@ -19,13 +19,29 @@ public class Student {
 
     }
 
-    public String getStudentName() {
+    public void setStudentID() {
+        this.StudentID = StudentID;
+    }
+
+    public int getStudentID(int StudentID) {
+
+        return StudentID;
+    }
+
+    public void setStudentName() {
+        this.StudentName = StudentName;
+    }
+    public String getStudentName(String StudentName) {
 
         return StudentName;
     }
 
-    public int getID() {
-
-        return StudentID;
+    public void setStudentProgram() {
+        this.StudentProgram = StudentProgram;
     }
+    public String getStudentProgram(String StudentProgram) {
+
+        return StudentProgram;
+    }
+
 }
