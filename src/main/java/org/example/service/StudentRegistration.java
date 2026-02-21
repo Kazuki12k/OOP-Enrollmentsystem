@@ -31,7 +31,7 @@ public class StudentRegistration {
 
     public void deleteStudentRecord(Student student) {
         for(int i = 0; i < studentlist.size(); i++) {
-            if(studentlist.get(i).getStudentID().equals(student.getStudentID())){
+            if(studentlist.get(i).getStudentID() == (student.getStudentID())){
                 studentlist.remove(i);
                 break;
             }

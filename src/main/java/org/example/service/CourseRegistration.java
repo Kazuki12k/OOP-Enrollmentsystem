@@ -21,7 +21,19 @@ public class CourseRegistration {
 
     public void updateCourse(Course course) {
         for(int i = 0; i < courselist.size(); i++){
-            if(courselist.get(i).getCourseID().equals(course.getCourseID()));
+            if(courselist.get(i).getCourseID() == (course.getCourseID())){
+                courselist.set(i, course);
+                break;
+            }
+        }
+    }
+
+    public void deleteCourseRecord(Course course) {
+        for(int i = 0; i < courselist.size(); i++) {
+            if(courselist.get(i).getCourseID() == (course.getCourseID())){
+                courselist.remove(i);
+                break;
+            }
         }
     }
 }
