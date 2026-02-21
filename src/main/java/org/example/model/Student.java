@@ -20,7 +20,8 @@ public class Student {
 
     }
     public String getStudentName() {
-        return Name;
+
+    return Name;
     }
     public int getIDnumber() {
 
