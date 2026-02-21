@@ -20,5 +20,22 @@ public class StudentRegistration {
         }
     }
 
-    public
+    public void updateStudent(Student student){
+        for(int i = 0; i < studentlist.size(); i++){
+            if(studentlist.get(i).getStudentID().equals(student.getStudentID())){
+                studentlist.set(i, student);
+                break;
+            }
+        }
+    }
+
+    public void deleteStudentRecord(Student student) {
+        for(int i = 0; i < studentlist.size(); i++) {
+            if(studentlist.get(i).getStudentID().equals(student.getStudentID())){
+                studentlist.remove(i);
+                break;
+            }
+        }
+    }
+
 }
