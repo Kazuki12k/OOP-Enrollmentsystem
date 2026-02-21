@@ -11,4 +11,14 @@ public class StudentRegistration {
         studentlist.add(student);
     }
 
+    public void displayAll(){
+        for(Student s: studentlist){
+            System.out.println(s.getStudentID());
+            System.out.println(s.getStudentName());
+            System.out.println(s.getStudentProgram());
+
+        }
+    }
+
+    public
 }
