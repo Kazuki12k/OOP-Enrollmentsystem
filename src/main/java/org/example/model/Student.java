@@ -1,29 +1,31 @@
-package org.example;
+package org.example.model;
 
 public class Student {
-
 
     String StudentName;
     int StudentID;
     String StudentProgram;
 
-    }
+
     public Student() {
 
     }
 
-    public Student(int StudentID, String StudentName, String StudentProgram){
+    public Student(int StudentID, String StudentName, String StudentProgram) {
 
         this.StudentID = StudentID;
         this.StudentName = StudentName;
         this.StudentProgram = StudentProgram;
 
     }
+
     public String getStudentName() {
 
-    return Name;
+        return StudentName;
     }
+
     public int getID() {
 
-        return ID;
+        return StudentID;
     }
+}

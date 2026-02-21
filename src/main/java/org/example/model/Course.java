@@ -6,7 +6,7 @@ public class Course {
     String courseprogram;
 
     public Course(String name, int ID, String program) {
-        courseID = id;
+        courseID = ID;
         coursename = name;
         courseprogram = program;
 
@@ -33,5 +33,4 @@ public class Course {
     public String getCourseprogram() {
         return courseprogram;
     }
-
 }
