@@ -4,7 +4,7 @@ public class Student {
 
 
     String StudentName;
-    int StudentIDnumber;
+    int StudentID;
     String StudentProgram;
 
     }
@@ -12,18 +12,18 @@ public class Student {
 
     }
 
-    public Student(int IDnumber, String Name, String Program){
+    public Student(int StudentID, String StudentName, String StudentProgram){
 
-        StudentIDnumber = IDnumber;
-        StudentName = Name;
-        StudentProgram = Program;
+        this.StudentID = StudentID;
+        this.StudentName = StudentName;
+        this.StudentProgram = StudentProgram;
 
     }
     public String getStudentName() {
 
     return Name;
     }
-    public int getIDnumber() {
+    public int getID() {
 
-        return IDnumber;
+        return ID;
     }
