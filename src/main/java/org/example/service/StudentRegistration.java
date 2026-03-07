@@ -22,7 +22,7 @@ public class StudentRegistration {
 
     public void updateStudent(Student student){
         for(int i = 0; i < studentlist.size(); i++){
-            if(studentlist.get(i).getStudentID().equals(student.getStudentID())){
+            if(studentlist.get(i).getStudentID() == (student.getStudentID())){
                 studentlist.set(i, student);
                 break;
             }

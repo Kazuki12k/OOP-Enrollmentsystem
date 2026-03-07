@@ -23,7 +23,7 @@ public class Student {
         this.StudentID = StudentID;
     }
 
-    public int getStudentID(int StudentID) {
+    public int getStudentID() {
 
         return StudentID;
     }
@@ -31,7 +31,8 @@ public class Student {
     public void setStudentName() {
         this.StudentName = StudentName;
     }
-    public String getStudentName(String StudentName) {
+
+    public String getStudentName() {
 
         return StudentName;
     }
@@ -39,7 +40,8 @@ public class Student {
     public void setStudentProgram() {
         this.StudentProgram = StudentProgram;
     }
-    public String getStudentProgram(String StudentProgram) {
+
+    public String getStudentProgram() {
 
         return StudentProgram;
     }
