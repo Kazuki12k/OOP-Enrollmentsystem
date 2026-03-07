@@ -6,8 +6,8 @@ public class Instructor {
     String Courses;
 
     public Instructor(String ID, String Name, String Courses) {
-        InstructorID = ID;
-        InstructorName = Name;
+        this.InstructorID = ID;
+        this.InstructorName = Name;
         this.Courses = Courses;
     }
 
