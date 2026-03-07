@@ -1,28 +1,11 @@
 package org.example.model;
 
-public class Instructor {
-    String InstructorID;
-    String InstructorName;
+public class Instructor extends Person{
     String Courses;
 
-    public Instructor(String ID, String Name, String Courses) {
-        this.InstructorID = ID;
-        this.InstructorName = Name;
+    public Instructor(String PersonID, String PersonName, String Courses) {
+        super(PersonID, PersonName);
         this.Courses = Courses;
-    }
-
-    public void setInstructorID(){
-        this.InstructorID = InstructorID;
-    }
-    public String getInstructorID(){
-        return InstructorID;
-    }
-
-    public void setInstructorName() {
-        this.InstructorName = InstructorName;
-    }
-    public String getInstructorName() {
-        return InstructorName;
     }
 
     public void setCourses() {
@@ -31,5 +14,4 @@ public class Instructor {
     public String getCourses() {
         return Courses;
     }
-
 }
