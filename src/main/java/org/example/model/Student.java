@@ -5,7 +5,7 @@ public class Student extends Person{
 
     String StudentProgram;
 
-    public Student(String PersonID, String PersonName, String StudentProgram) {
+    public Student(int PersonID, String PersonName, String StudentProgram) {
         super(PersonID, PersonName);
         this.StudentProgram = StudentProgram;
     }

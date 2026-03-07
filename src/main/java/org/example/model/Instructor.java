@@ -3,7 +3,7 @@ package org.example.model;
 public class Instructor extends Person{
     String Courses;
 
-    public Instructor(String PersonID, String PersonName, String Courses) {
+    public Instructor(int PersonID, String PersonName, String Courses) {
         super(PersonID, PersonName);
         this.Courses = Courses;
     }

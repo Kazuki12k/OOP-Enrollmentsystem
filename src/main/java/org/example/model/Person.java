@@ -2,10 +2,10 @@ package org.example.model;
 
 public class Person {
 
-    String PersonID;
+    int PersonID;
     String PersonName;
 
-    public Person(String ID, String Name) {
+    public Person(int ID, String Name) {
         this.PersonID = ID;
         this.PersonName = Name;
     }
@@ -13,7 +13,7 @@ public class Person {
     public void setPersonID() {
         this.PersonID = PersonID;
     }
-    public String getPersonID() {
+    public int getPersonID() {
         return PersonID;
     }
 
