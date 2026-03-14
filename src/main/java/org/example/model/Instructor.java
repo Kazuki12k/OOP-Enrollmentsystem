@@ -14,4 +14,8 @@ public class Instructor extends Person{
     public String getCourses() {
         return Courses;
     }
+
+    public void mainTask() {
+        System.out.println("Teaching");
+    }
 }
