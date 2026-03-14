@@ -7,14 +7,25 @@ public class TuitionFeePayment {
     private double tuitionFee = 0;
 
     public double calculateTuitionFee(double units, double discountrate) {
-        double totalTuitionFee = units * PRICE_PER_UNIT;
+        tuitionFee = units * PRICE_PER_UNIT;
 
         if(discountrate != 0){
-            totalTuitionFee = totalTuitionFee - (totalTuitionFee * discountrate);
+            tuitionFee = tuitionFee - (tuitionFee * discountrate);
+            return tuitionFee;
         }
         else {
-
+            return tuitionFee;
         }
-        return totalTuitionFee;
+    }
+    public void makePayment(double amount){
+        balance = tuitionFee - amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public boolean isFullyPaid() {
+        return balance > 0 ? false : true;
     }
 }
