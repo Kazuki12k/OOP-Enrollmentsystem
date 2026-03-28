@@ -3,7 +3,7 @@ package org.example.service;
 import java.util.ArrayList;
 import org.example.model.Student;
 
-public class StudentRegistration {
+public class StudentRegistration implements StudentREG{
 
     private ArrayList<Student> studentlist = new ArrayList<Student>();
 
