@@ -33,4 +33,9 @@ public class Course {
     public String getCourseprogram() {
         return courseprogram;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

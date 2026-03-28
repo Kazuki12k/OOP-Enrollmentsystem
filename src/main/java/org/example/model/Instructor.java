@@ -1,18 +1,36 @@
 package org.example.model;
 
+import java.util.List;
+
 public class Instructor extends Person{
-    String Courses;
+    private List<Course> courseList;
 
-    public Instructor(int PersonID, String PersonName, String Courses) {
+    public Instructor(int PersonID, String PersonName, List<Course>courseList) {
         super(PersonID, PersonName);
-        this.Courses = Courses;
+        this.courseList = courseList;
     }
 
-    public void setCourses() {
-        this.Courses = Courses;
+    public List<Course> displayCourses() {
+        return courseList.stream().toList();
     }
-    public String getCourses() {
-        return Courses;
+
+    @Override
+    public void setPersonID() {
+        super.setPersonID();
+    }
+
+    @Override
+    public int getPersonID() {
+        return super.getPersonID();
+    }
+
+    @Override
+    public void setPersonName() {
+        this.PersonName = PersonName;
+    }
+    @Override
+    public String getPersonName() {
+        return PersonName;
     }
 
     public void mainTask() {
