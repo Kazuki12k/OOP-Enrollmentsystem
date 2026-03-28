@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.example.model.Course;
 
 
-public class CourseRegistration {
+public class CourseRegistration implements CourseREG{
     private ArrayList<Course> courselist = new ArrayList<Course>();
 
     public void addCourse(Course course) {

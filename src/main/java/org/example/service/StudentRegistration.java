@@ -14,8 +14,8 @@ public class StudentRegistration implements StudentREG{
     public void displayAll(){
         for(Student s: studentlist){
             System.out.println(s.getPersonID());
-            System.out.println(s.getPersonName());
-            System.out.println(s.getStudentProgram());
+            System.out.print(s.getPersonName());
+            System.out.print(s.getStudentProgram());
 
         }
     }
