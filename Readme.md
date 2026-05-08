@@ -17,3 +17,5 @@
 ![Screenshot 2026-02-14 1.png](src/main/resources/Images/Screenshot%202026-03-14%202.png)
 ![Screenshot 2026-02-14 1.png](src/main/resources/Images/Screenshot%202026-03-14%203.png)
 
+- Interface
+![]()
