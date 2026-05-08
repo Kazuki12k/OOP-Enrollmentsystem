@@ -33,7 +33,4 @@ public class Instructor extends Person{
         return PersonName;
     }
 
-    public void mainTask() {
-        System.out.println("Teaching");
-    }
 }

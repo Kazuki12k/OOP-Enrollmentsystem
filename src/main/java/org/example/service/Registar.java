@@ -61,4 +61,5 @@ public class Registar {
         courseREG.deleteCourseRecord(course);
         return "Deleted Succesfully";
     }
+
 }
