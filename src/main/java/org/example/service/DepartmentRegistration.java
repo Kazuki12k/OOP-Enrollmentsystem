@@ -6,7 +6,7 @@ import org.example.model.Instructor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentRegistration {
+public class DepartmentRegistration implements DepartmentREG {
     List<Department> departmentList;
     List<Instructor> instructorList;
 
