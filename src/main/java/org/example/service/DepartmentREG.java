@@ -6,9 +6,7 @@ import java.util.*;
 
 public interface DepartmentREG {
     void saveDepartment(Department department);
-
-    public interface DepartmentRegistration {
-        void saveDepartment(Department department);
-        List<Department> displayAll();
-    }
+    void updateDepartment(Department department);
+    void deleteDepartment(Department department);
+    List<Department> displayAll();
 }
