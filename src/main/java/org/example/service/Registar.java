@@ -1,9 +1,6 @@
 package org.example.service;
 
-import org.example.model.Course;
-import org.example.model.Student;
-import org.example.model.Instructor;
-import org.example.model.Department;
+import org.example.model.*;
 
 import java.util.List;
 
@@ -11,6 +8,10 @@ public class Registar {
     private StudentREG studentREG;
     private CourseREG courseREG;
     private DepartmentREG departmentREG;
+    private EnrollmentService enrollmentServ;
+    private TuitionService tuitionServ;
+    private InstructorService instructorServ;
+
 
     public Registar(StudentREG studentREG, CourseREG courseREG) {
         this.studentREG = studentREG;
@@ -27,7 +28,7 @@ public class Registar {
     }
 
     public String displayAll(){
-        studentREG.displayAll();
+        studentREG.displayStudents();
         return "Displaying Students";
     }
 
@@ -48,7 +49,7 @@ public class Registar {
     }
 
     public String displayALL(){
-        courseREG.DisplayAll();
+        courseREG.DisplayCourses();
         return "Displaying Courses";
     }
 
@@ -62,4 +63,47 @@ public class Registar {
         return "Deleted Succesfully";
     }
 
+    public void saveDepartment(Department department) {
+        departmentREG.saveDepartment(department);
+    }
+
+    public void updateDepartment(Department department){
+        departmentREG.updateDepartment(department);
+    }
+    public void deleteDepartment(Department department){
+        departmentREG.deleteDepartment(department);
+    }
+    public List<Department> displayDepartments(){
+       return departmentREG.displayDepartments();
+    }
+
+    public double calculateTuitionFee(double units, double discountrate){
+        return tuitionServ.calculateTuitionFee(units, discountrate);
+    }
+    public void makePayment(double amount){
+        tuitionServ.makePayment(amount);
+    }
+    public double getBalance(){
+        return tuitionServ.getBalance();
+    }
+    public boolean isFullyPaid(){
+       return tuitionServ.isFullyPaid();
+    }
+
+    public void enrollStudentinSection(Student student, Section section, List<Student> studentList){
+        enrollmentServ.enrollStudentinSection(student, section, studentList);
+    }
+    public void viewDepartmentHierarchy(Department department){
+        enrollmentServ.viewDepartmentHierarchy(department);
+    }
+
+    public void addInstructor(Instructor instructor){
+        instructorServ.addInstructor(instructor);
+    }
+    public void assignInstructortoSection(Instructor instructor, Section sectionName, List<Instructor> instructorList){
+        instructorServ.assignInstructortoSection(instructor, sectionName, instructorList);
+    }
+    public List<Instructor> getInstructordetails(){
+        return instructorServ.getInstructordetails();
+    }
 }

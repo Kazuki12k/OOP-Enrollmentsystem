@@ -35,7 +35,7 @@ public class DepartmentRegistration implements DepartmentREG {
         }
     }
 
-    public List<Department> displayAll() {
+    public List<Department> displayDepartments() {
         return departmentList.stream().toList();
     }
 

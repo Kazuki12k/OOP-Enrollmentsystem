@@ -4,7 +4,7 @@ import org.example.model.Student;
 
 public interface StudentREG {
     void addStudent(Student student);
-    void displayAll();
+    void displayStudents();
     void updateStudent(Student student);
     void deleteStudentRecord(Student student);
 }

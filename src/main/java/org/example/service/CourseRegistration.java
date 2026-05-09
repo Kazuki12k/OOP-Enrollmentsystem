@@ -11,7 +11,7 @@ public class CourseRegistration implements CourseREG{
         courselist.add(course);
     }
 
-    public void DisplayAll(){
+    public void DisplayCourses(){
         for(Course c: courselist){
             System.out.println(c.getCourseID());
             System.out.println(c.getCoursename());

@@ -8,5 +8,5 @@ public interface DepartmentREG {
     void saveDepartment(Department department);
     void updateDepartment(Department department);
     void deleteDepartment(Department department);
-    List<Department> displayAll();
+    List<Department> displayDepartments();
 }
