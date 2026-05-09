@@ -3,9 +3,10 @@ package org.example.model;
 import java.util.*;
 
 public class Department {
-    public String departmentID;
-    public String departmentName;
-    private List instructorList;
+    String departmentID;
+    String departmentName;
+    private List<Instructor> instructorList;
+    private List<Section> sectionList;
 
     public Department(String departmentName){
         this.departmentName = departmentName;
@@ -16,10 +17,15 @@ public class Department {
         this.departmentName =departmentName;
     }
 
+    public Department(String departmentName, List<Section> sectionList){
+        this.departmentName = departmentName;
+        this.sectionList = new ArrayList<>();
+    }
+
     public Department(String departmentID, String departmentName, List<Instructor> instructorList) {
         this.departmentID = departmentID;
         this.departmentName = departmentName;
-        this.instructorList = instructorList;
+        this.instructorList = new ArrayList<>();
 
     }
 
@@ -31,7 +37,11 @@ public class Department {
         return departmentName;
      }
 
-     public List getInstructorList() {return instructorList;}
+     public List<Instructor> getInstructorList() {return instructorList;}
+
+    public List<Section> getSectionList() {
+        return sectionList;
+    }
 
      
 }

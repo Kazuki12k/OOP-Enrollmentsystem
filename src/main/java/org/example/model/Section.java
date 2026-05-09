@@ -5,7 +5,7 @@ import java.util.*;
 public class Section extends Department{
     private String sectionName;
     final int MAXCAPACITY = 30;
-    public List<Student> studentList;
+    private List<Student> studentList;
 
     public Section(String sectionName, String departmentName, List<Student> studentList){
         super(departmentName);

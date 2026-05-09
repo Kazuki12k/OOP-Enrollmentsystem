@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.Department;
 import org.example.model.Section;
 import org.example.model.Student;
 
@@ -18,13 +19,20 @@ public class EnrollmentServiceImpl implements EnrollmentService{
                 System.out.println("Section already full");
                 return;
             }
-
-            section.getstudentList().add(student);
-            System.out.println("Student Enrolled");
+            else{
+                section.getstudentList().add(student);
+                System.out.println("Student Enrolled");
+            }
         }
     }
 
-    public void viewDepartmentHierarchy(){
-
+    public void viewDepartmentHierarchy(Department department){
+        System.out.println("Department: " + department.getDepartmentName());
+        for(Section section : department.getSectionList()) {
+            System.out.println("Section " + section.getSectionName());
+            for(Student student : section.getstudentList()) {
+                System.out.println("Students: " + student.getPersonName());
+            }
+        }
     }
 }
