@@ -13,9 +13,13 @@ public class Registar {
     private InstructorService instructorServ;
 
 
-    public Registar(StudentREG studentREG, CourseREG courseREG) {
+    public Registar(StudentREG studentREG, CourseREG courseREG, DepartmentREG departmentREG, EnrollmentService enrollmentServ, TuitionService tuitionServ, InstructorService instructorServ) {
         this.studentREG = studentREG;
         this.courseREG = courseREG;
+        this.departmentREG = departmentREG;
+        this.enrollmentServ =  enrollmentServ;
+        this.tuitionServ = tuitionServ;
+        this.instructorServ = instructorServ;
     }
 
     public String saveDepartment(String departmentID, String departmentName, List<Instructor> instructorList) {
