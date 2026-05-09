@@ -3,10 +3,18 @@ package org.example.model;
 import java.util.*;
 
 public class Department {
-    private String departmentID;
-    private String departmentName;
+    public String departmentID;
+    public String departmentName;
     private List<Instructor> instructorList;
 
+    public Department(String departmentName){
+        this.departmentName = departmentName;
+    }
+
+    public Department(String departmentID, String departmentName) {
+        this.departmentID = departmentID;
+        this.departmentName =departmentName;
+    }
 
     public Department(String departmentID, String departmentName, List instructorList) {
         this.departmentID = departmentID;
