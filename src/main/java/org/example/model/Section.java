@@ -6,12 +6,13 @@ public class Section extends Department{
     private String sectionName;
     final int MAXCAPACITY = 30;
     private List<Student> studentList;
+    private List<Instructor> instructorList;
 
-    public Section(String sectionName, String departmentName, List<Student> studentList){
+    public Section(String sectionName, String departmentName, List<Student> studentList, List<Instructor> instructorList){
         super(departmentName);
         this.sectionName = sectionName;
         this.studentList = new ArrayList<>();
-
+        this.instructorList = new ArrayList<>();
     }
 
     public String getSectionName() {
@@ -24,5 +25,9 @@ public class Section extends Department{
 
     public List<Student> getstudentList(){
         return studentList;
+    }
+
+    public List<Instructor> getinstructorList(){
+        return instructorList;
     }
 }

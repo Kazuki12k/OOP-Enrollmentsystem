@@ -13,10 +13,14 @@ public class InstructorServiceImpl implements InstructorService{
     public void addInstructor(Instructor instructor){
         instructorList.add(instructor);
     }
-    public void assignInstructortoSection(Instructor instructor, Section sectionID){
+
+    public void assignInstructortoSection(Instructor instructor, Section section, List<Instructor> instructorList){
+
+        section.getinstructorList().add(instructor);
+        System.out.println("Instructor assigned to the Section");
 
     }
-    public void getInstructordetails(){
-
+    public List<Instructor> getInstructordetails(){
+        return instructorList.stream().toList();
     }
 }

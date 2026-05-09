@@ -12,7 +12,7 @@ public class EnrollmentServiceImpl implements EnrollmentService{
     final int MAXCAPACITY = 30;
 
 
-    public void enrollStudentinSection(Student student, Section section, List studentList){
+    public void enrollStudentinSection(Student student, Section section, List<Student> studentList){
         for(int i = 0; i < studentList.size(); i++){
 
             if(studentList.size() >= MAXCAPACITY) {
