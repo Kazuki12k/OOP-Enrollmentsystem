@@ -13,7 +13,14 @@ public class EnrollmentServiceImpl implements EnrollmentService{
 
     public void enrollStudentinSection(Student student, Section section, List studentList){
         for(int i = 0; i < studentList.size(); i++){
-        section.getstudentList().add(student);
+
+            if(studentList.size() >= MAXCAPACITY) {
+                System.out.println("Section already full");
+                return;
+            }
+
+            section.getstudentList().add(student);
+            System.out.println("Student Enrolled");
         }
     }
 

@@ -3,7 +3,9 @@ package org.example.service;
 import org.example.model.Section;
 import org.example.model.Student;
 
+import java.util.List;
+
 public interface EnrollmentService {
-    void enrollStudentinSection(Student student, Section section);
+    void enrollStudentinSection(Student student, Section section, List studentList);
     void viewDepartmentHierarchy();
 }
