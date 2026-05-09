@@ -5,12 +5,12 @@ import java.util.*;
 public class Section extends Department{
     private String sectionName;
     final int MAXCAPACITY = 30;
-    private List<Student> StudentList;
+    public List<Student> studentList;
 
-    public Section(String sectionName, String departmentName, List<Student> StudentList){
+    public Section(String sectionName, String departmentName, List<Student> studentList){
         super(departmentName);
         this.sectionName = sectionName;
-        this.StudentList = StudentList;
+        this.studentList = new ArrayList<>();
 
     }
 
@@ -20,5 +20,9 @@ public class Section extends Department{
 
     public int getMAXCAPACITY() {
         return MAXCAPACITY;
+    }
+
+    public List<Student> getstudentList(){
+        return studentList;
     }
 }

@@ -4,8 +4,9 @@
 
 **Rebancos,Rafael T.**
 
+- Encapsulation
 
-
+![]()
 - Inheritance
 
 ![Screenshot 2026-03-07 1.png](src/main/resources/Images/Screenshot%202026-03-07%201.png)
@@ -19,3 +20,4 @@
 
 - Interface
 ![]()
+
