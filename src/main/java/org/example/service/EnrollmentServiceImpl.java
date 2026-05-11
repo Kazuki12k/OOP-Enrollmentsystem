@@ -4,8 +4,7 @@ import org.example.model.Department;
 import org.example.model.Section;
 import org.example.model.Student;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class EnrollmentServiceImpl implements EnrollmentService{
 

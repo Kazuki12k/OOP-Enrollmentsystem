@@ -185,4 +185,8 @@ public class Main {
             }
         }
     }
+
+    static void instructorMenu(Scanner scan, Registar registar){
+
+    }
 }

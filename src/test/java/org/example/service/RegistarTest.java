@@ -26,11 +26,7 @@ class RegistarTest {
     }
 
 
-    @Test
-    void shouldsaveDepartment() {
 
-        departmentREG.saveDepartment(new Department(01,"CITE", instructorList);
 
-        assertEquals();
     }
 }
