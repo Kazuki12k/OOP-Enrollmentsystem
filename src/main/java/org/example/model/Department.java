@@ -19,13 +19,13 @@ public class Department {
 
     public Department(String departmentName, List<Section> sectionList){
         this.departmentName = departmentName;
-        this.sectionList = new ArrayList<>();
+        this.sectionList = sectionList;
     }
 
     public Department(String departmentID, String departmentName, List<Instructor> instructorList) {
         this.departmentID = departmentID;
         this.departmentName = departmentName;
-        this.instructorList = new ArrayList<>();
+        this.instructorList = instructorList;
 
     }
 

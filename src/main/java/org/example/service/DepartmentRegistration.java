@@ -20,7 +20,7 @@ public class DepartmentRegistration implements DepartmentREG {
     }
     public void updateDepartment(Department department) {
         for(int i = 0; i < departmentList.size(); i++){
-            if(departmentList.get(i).getDepartmentID() == (department.getDepartmentID())){
+            if(departmentList.get(i).getDepartmentID().equals(department.getDepartmentID())){
                 departmentList.set(i, department);
                 break;
             }
