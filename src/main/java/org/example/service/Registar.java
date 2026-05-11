@@ -11,15 +11,17 @@ public class Registar {
     private EnrollmentService enrollmentServ;
     private TuitionService tuitionServ;
     private InstructorService instructorServ;
+    private SectionREG sectionREG;
 
 
-    public Registar(StudentREG studentREG, CourseREG courseREG, DepartmentREG departmentREG, EnrollmentService enrollmentServ, TuitionService tuitionServ, InstructorService instructorServ) {
+    public Registar(StudentREG studentREG, CourseREG courseREG, DepartmentREG departmentREG, EnrollmentService enrollmentServ, TuitionService tuitionServ, InstructorService instructorServ,SectionREG sectionREG) {
         this.studentREG = studentREG;
         this.courseREG = courseREG;
         this.departmentREG = departmentREG;
         this.enrollmentServ =  enrollmentServ;
         this.tuitionServ = tuitionServ;
         this.instructorServ = instructorServ;
+        this.sectionREG = sectionREG;
     }
 
     public String registerStudent(Student student) {
@@ -106,4 +108,14 @@ public class Registar {
     public List<Instructor> getInstructordetails(){
         return instructorServ.getInstructordetails();
     }
+
+    public void addSection(Section section){sectionREG.addSection(section);}
+
+    public void updateSection(Section section){sectionREG.updateSection(section);}
+
+    public void deleteSection(Section section){sectionREG.deleteSection(section);}
+
+    public List<Section> displaySections(){return sectionREG.displaySections();}
+
+
 }

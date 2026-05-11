@@ -5,14 +5,14 @@ import org.example.model.Section;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SectionRegistration {
+public class SectionRegistration implements SectionREG {
     private ArrayList<Section> sectionList = new ArrayList<Section>();
 
     public void addSection(Section section) {
         sectionList.add(section);
     }
 
-    public List<Section> DisplaySections(){
+    public List<Section> displaySections(){
         return sectionList.stream().toList();
     }
 

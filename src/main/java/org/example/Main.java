@@ -5,8 +5,6 @@ import org.example.service.*;
 
 import java.util.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -17,7 +15,7 @@ public class Main {
         List<Department> departmentList = new ArrayList<>();
         List<Student> studentList = new ArrayList<>();
 
-        Registar registar = new Registar(new StudentRegistration(), new CourseRegistration(), new DepartmentRegistration(), new EnrollmentServiceImpl(), new TuitionFeePayment(), new InstructorServiceImpl());
+        Registar registar = new Registar(new StudentRegistration(), new CourseRegistration(), new DepartmentRegistration(), new EnrollmentServiceImpl(), new TuitionFeePayment(), new InstructorServiceImpl(), new SectionRegistration());
 
         startMenu(scan, registar);
 
