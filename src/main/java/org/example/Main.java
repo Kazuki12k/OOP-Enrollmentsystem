@@ -127,10 +127,22 @@ public class Main {
                     System.out.print("Section Name: ");
                     String sectionName = scan.nextLine();
 
-                    System.out.print("Department Name: ");
-                    String departmentName = scan.nextLine();
+                    // FIND SECTION OBJECT
+                    Section section = null;
 
-                    registar.enrollStudentinSection(student, sectionName, departmentName);
+                    for (Section s : registar.getDepartmentREG().getSections()) {
+                        if (s.getSectionName().equalsIgnoreCase(sectionName)) {
+                            section = s;
+                            break;
+                        }
+                    }
+
+                    if (section == null) {
+                        System.out.println("Section not found!");
+                        break;
+                    }
+
+                    registar.enrollStudentinSection(student, section, section.getStudentList());
                     break;
 
                 case 6:
@@ -189,71 +201,64 @@ public class Main {
             }
         }
     }
-    public static void departmentMenu(Scanner scan, Registar registar) {
-
-        while (true) {
-            System.out.println("\n--- DEPARTMENT MENU ---");
-            System.out.println("1. Add Department");
-            System.out.println("2. Update Department");
-            System.out.println("3. Delete Department");
-            System.out.println("4. Display Departments");
-            System.out.println("5. Back");
-            System.out.print("Choose: ");
-
-            int choice = scan.nextInt();
-            scan.nextLine();
-
-            switch (choice) {
-
-                case 1 -> {
-                    System.out.print("Enter Department ID: ");
-                    String id = scan.nextLine();
-
-                    System.out.print("Enter Department Name: ");
-                    String name = scan.nextLine();
-
-                    Department dept = new Department(id, name);
-                    registar.saveDepartment(dept);
-
-                    System.out.println("Department added.");
-                }
-
-                case 2 -> {
-                    System.out.print("Enter Department ID to update: ");
-                    String id = scan.nextLine();
-
-                    System.out.print("New Department Name: ");
-                    String name = scan.nextLine();
-
-                    Department dept = new Department(id, name);
-                    registar.updateDepartment(dept);
-
-                    System.out.println("Department updated.");
-                }
-
-                case 3 -> {
-                    System.out.print("Enter Department ID to delete: ");
-                    String id = scan.nextLine();
-
-                    Department dept = new Department(id, "");
-                    registar.deleteDepartment(dept);
-
-                    System.out.println("Department deleted.");
-                }
-
-                case 4 -> {
-                    System.out.println("\n--- DEPARTMENTS ---");
-                    for (Department d : registar.displayDepartments()) {
-                        System.out.println(d.getDepartmentID() + " | " + d.getDepartmentName());
-                    }
-                }
-
-                case 5 -> {
-                    return;
-                }
-
-                default -> System.out.println("Invalid choice.");
-            }
-        }
-    }
+//    public static void departmentMenu(Scanner scan, Registar registar) {
+//
+//        while (true) {
+//            System.out.println("\n--- DEPARTMENT MENU ---");
+//            System.out.println("1. Add Department");
+//            System.out.println("2. Update Department");
+//            System.out.println("3. Delete Department");
+//            System.out.println("4. Display Departments");
+//            System.out.println("5. Back");
+//            System.out.print("Choose: ");
+//
+//            int choice = scan.nextInt();
+//            scan.nextLine();
+//
+//            switch (choice) {
+//
+//                case 1:
+//                    System.out.print("Enter Department ID: ");
+//                    String id = scan.nextLine();
+//
+//                    System.out.print("Enter Department Name: ");
+//                    String name = scan.nextLine();
+//
+//                    Department dept = new Department(id, name);
+//                    registar.saveDepartment(dept);
+//
+//                    System.out.println("Department added.");
+//
+//                case 2 :
+//                    System.out.print("Enter Department ID to update: ");
+//                    String id2 = scan.nextLine();
+//
+//                    System.out.print("New Department Name: ");
+//                    String name2 = scan.nextLine();
+//
+//                    Department dept2 = new Department(id2, name2);
+//                    registar.updateDepartment(dept2);
+//
+//                    System.out.println("Department updated.");
+//
+//                case 3 :
+//                    System.out.print("Enter Department ID to delete: ");
+//                    String id3 = scan.nextLine();
+//
+//                    Department dept3 = new Department(id3, "");
+//                    registar.deleteDepartment(dept3);
+//
+//                    System.out.println("Department deleted.");
+//
+//                case 4 :
+//                    for (Department d : registar.displayDepartments()) {
+//                        System.out.println(d.getDepartmentID() + " | " + d.getDepartmentName());
+//                    }
+//
+//
+//                case 5 :
+//                    startMenu(scan,registar);
+//            }
+//        }
+//    }
 }

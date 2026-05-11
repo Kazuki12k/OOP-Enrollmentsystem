@@ -1,47 +1,27 @@
 package org.example.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Department {
-    String departmentID;
-    String departmentName;
-    private List<Instructor> instructorList;
-    private List<Section> sectionList;
 
-    public Department(String departmentName){
+    private String departmentName; // e.g. CITE
+    private List<Course> courses;
+
+    public Department(String departmentName) {
         this.departmentName = departmentName;
+        this.courses = new ArrayList<>();
     }
 
-    public Department(String departmentID, String departmentName) {
-        this.departmentID = departmentID;
-        this.departmentName =departmentName;
-    }
-
-    public Department(String departmentName, List<Section> sectionList){
-        this.departmentName = departmentName;
-        this.sectionList = sectionList;
-    }
-
-    public Department(String departmentID, String departmentName, List<Instructor> instructorList) {
-        this.departmentID = departmentID;
-        this.departmentName = departmentName;
-        this.instructorList = instructorList;
-
-    }
-
-     public String getDepartmentID() {
-        return departmentID;
-     }
-
-     public String getDepartmentName() {
+    public String getDepartmentName() {
         return departmentName;
-     }
-
-     public List<Instructor> getInstructorList() {return instructorList;}
-
-    public List<Section> getSectionList() {
-        return sectionList;
     }
 
-     
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
 }
