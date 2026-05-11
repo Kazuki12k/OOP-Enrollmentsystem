@@ -9,8 +9,8 @@ public class Course {
         courseID = ID;
         coursename = name;
         courseprogram = program;
-
     }
+
     public void setCourseID(int courseID){
         this.courseID = courseID;
     }
@@ -18,6 +18,7 @@ public class Course {
     public int getCourseID() {
         return courseID;
     }
+
     public void setCoursename(String coursename) {
         this.coursename = coursename;
     }
@@ -36,6 +37,8 @@ public class Course {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Course ID: " + courseID +
+                " | Name: " + coursename +
+                " | Program: " + courseprogram;
     }
 }
