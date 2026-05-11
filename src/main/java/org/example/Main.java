@@ -9,7 +9,7 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
+        Scanner scan = new Scanner(System.in);
 
         List<Course> courseList = new ArrayList<>();
         List<Instructor> instructorList = new ArrayList<>();
@@ -28,6 +28,32 @@ public class Main {
         System.out.println("    4.Exit");
         System.out.println("----------------------------");
 
+        int ans = scan.nextInt();
+
+        switch(ans){
+
+            case 1:
+                scan.nextLine();
+
+                System.out.print("Enter Student ID: ");
+                int id = scan.nextInt();
+
+                scan.nextLine();
+                System.out.print("Enter Student Name: ");
+                String name = scan.nextLine();
+
+                System.out.print("Enter Course: ");
+                String course = scan.nextLine();
+
+                Student student = new Student(id, name, course);
+
+                registar.registerStudent(student);
+                System.out.println("Student Registered Successfully");
+                break;
+
+            case 2:
+
+        }
 
 
     }
