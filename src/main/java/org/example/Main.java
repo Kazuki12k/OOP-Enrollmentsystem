@@ -128,7 +128,7 @@ public class Main {
                     // FIND SECTION OBJECT
                     Section section = null;
 
-                    for (Section s : registar.getDepartmentREG().getSections()) {
+                    for (Section s : registar.displaySections()) {
                         if (s.getSectionName().equalsIgnoreCase(sectionName)) {
                             section = s;
                             break;
@@ -140,7 +140,7 @@ public class Main {
                         break;
                     }
 
-                    registar.enrollStudentinSection(student, section, section.getStudentList());
+                        registar.enrollStudentinSection(student, section);
                     break;
 
                 case 6:
@@ -175,6 +175,7 @@ public class Main {
                     String name = scan.nextLine();
 
                     registar.addInstructor(new Instructor(id, name));
+                    System.out.println("Instructor Successfully Registered");
                     break;
 
                 case 2:
@@ -189,9 +190,39 @@ public class Main {
                     scan.nextLine();
 
                     System.out.print("Section Name: ");
-                    String section = scan.nextLine();
+                    String sectionname = scan.nextLine();
 
-                    registar.assignInstructortoSection(new Instructor(iid, ""), section);
+                    Instructor instructor = null;
+
+                    for (Instructor i : registar.getInstructordetails()) {
+                        if (i.getPersonID() == iid) {
+                            instructor = i;
+                            break;
+                        }
+                    }
+
+                    if (instructor == null) {
+                        System.out.println("Instructor not found!");
+                        break;
+                    }
+
+                    Section section = null;
+
+                    for (Section s : registar.displaySections()) {
+                        if (s.getSectionName().equalsIgnoreCase(sectionname)) {
+                            section = s;
+                            break;
+                        }
+                    }
+
+                    if (section == null) {
+                        System.out.println("Section not found!");
+                        break;
+                    }
+
+                    registar.assignInstructortoSection(instructor, section);
+
+                    System.out.println("Instructor assigned successfully.");
                     break;
 
                 case 4:

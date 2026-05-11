@@ -92,8 +92,8 @@ public class Registar {
        return tuitionServ.isFullyPaid();
     }
 
-    public void enrollStudentinSection(Student student, Section section, List<Student> studentList){
-        enrollmentServ.enrollStudentinSection(student, section, studentList);
+    public void enrollStudentinSection(Student student, Section section){
+        enrollmentServ.enrollStudentinSection(student, section, section.getstudentList());
     }
     public void viewDepartmentHierarchy(Department department){
         enrollmentServ.viewDepartmentHierarchy(department);
@@ -102,9 +102,11 @@ public class Registar {
     public void addInstructor(Instructor instructor){
         instructorServ.addInstructor(instructor);
     }
-    public void assignInstructortoSection(Instructor instructor, Section sectionName, List<Instructor> instructorList){
-        instructorServ.assignInstructortoSection(instructor, sectionName, instructorList);
+
+    public void assignInstructortoSection(Instructor instructor, Section section){
+        instructorServ.assignInstructortoSection(instructor, section, section.getinstructorList());
     }
+
     public List<Instructor> getInstructordetails(){
         return instructorServ.getInstructordetails();
     }
@@ -116,6 +118,5 @@ public class Registar {
     public void deleteSection(Section section){sectionREG.deleteSection(section);}
 
     public List<Section> displaySections(){return sectionREG.displaySections();}
-
 
 }
