@@ -22,16 +22,12 @@ public class Registar {
         this.instructorServ = instructorServ;
     }
 
-    public String saveDepartment(String departmentID, String departmentName, List<Instructor> instructorList) {
-        departmentREG.saveDepartment(new Department(departmentID, departmentName, instructorList));
-        return "Succesfully Added";
-    }
     public String registerStudent(Student student) {
         studentREG.addStudent(student);
         return "Added";
     }
 
-    public String displayAll(){
+    public String displayStudents(){
         studentREG.displayStudents();
         return "Displaying Students";
     }
@@ -52,7 +48,7 @@ public class Registar {
         return "Course added";
     }
 
-    public String displayALL(){
+    public String displayCourses(){
         courseREG.DisplayCourses();
         return "Displaying Courses";
     }

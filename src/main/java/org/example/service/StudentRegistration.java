@@ -13,10 +13,7 @@ public class StudentRegistration implements StudentREG{
 
     public void displayStudents(){
         for(Student s: studentlist){
-            System.out.println(s.getPersonID());
-            System.out.print(s.getPersonName());
-            System.out.print(s.getStudentProgram());
-
+            System.out.println(s.getPersonID() + " | " + s.getPersonName() + " | " + s.getStudentProgram());
         }
     }
 
