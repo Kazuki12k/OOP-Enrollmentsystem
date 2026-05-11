@@ -3,12 +3,16 @@ package org.example.service;
 import org.example.model.Instructor;
 import org.example.model.Section;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InstructorServiceImpl implements InstructorService{
 
     List<Instructor> instructorList;
-    List<Section> SectionList;
+
+    public InstructorServiceImpl() {
+        this.instructorList = new ArrayList<Instructor>();
+    }
 
     public void addInstructor(Instructor instructor){
         instructorList.add(instructor);

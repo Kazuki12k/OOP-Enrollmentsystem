@@ -2,14 +2,13 @@ package org.example.model;
 
 import java.util.*;
 
-public class Section extends Department{
+public class Section{
     private String sectionName;
     final int MAXCAPACITY = 30;
     private List<Student> studentList;
     private List<Instructor> instructorList;
 
-    public Section(String sectionName, String departmentName, List<Student> studentList, List<Instructor> instructorList){
-        super(departmentName);
+    public Section(String sectionName, List<Student> studentList, List<Instructor> instructorList){
         this.sectionName = sectionName;
         this.studentList = new ArrayList<>();
         this.instructorList = new ArrayList<>();

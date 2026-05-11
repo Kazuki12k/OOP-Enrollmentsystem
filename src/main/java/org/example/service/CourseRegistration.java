@@ -13,9 +13,7 @@ public class CourseRegistration implements CourseREG{
 
     public void DisplayCourses(){
         for(Course c: courselist){
-            System.out.println(c.getCourseID());
-            System.out.println(c.getCoursename());
-            System.out.println(c.getCourseprogram());
+            System.out.println(c.getCourseID() + " | " + c.getCoursename() + " | " + c.getCourseprogram());
         }
     }
 

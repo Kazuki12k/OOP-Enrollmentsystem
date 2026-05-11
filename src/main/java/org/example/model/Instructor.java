@@ -3,16 +3,11 @@ package org.example.model;
 import java.util.List;
 
 public class Instructor extends Person{
-    private List<Course> courseList;
 
-    public Instructor(int PersonID, String PersonName, List<Course>courseList) {
+    public Instructor(int PersonID, String PersonName) {
         super(PersonID, PersonName);
-        this.courseList = courseList;
     }
 
-    public List<Course> displayCourses() {
-        return courseList.stream().toList();
-    }
 
     @Override
     public void setPersonID() {
