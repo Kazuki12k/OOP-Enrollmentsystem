@@ -49,30 +49,27 @@ public class Main {
         }
     }
 
-    static void studentMenu(Scanner scan, Registar registar){
+    static void studentMenu(Scanner scan, Registar registar) {
 
-        while(true) {
+        while (true) {
 
             System.out.println("\n--- STUDENT MENU ---");
             System.out.println("1. Register Student");
             System.out.println("2. Update Student");
             System.out.println("3. Delete Student");
-            System.out.println("4. Display All Students");
+            System.out.println("4. Display Students");
             System.out.println("5. Enroll Student in Section");
             System.out.println("6. Back");
 
-            System.out.print("Choice: ");
             int choice = scan.nextInt();
 
             switch (choice) {
 
                 case 1:
-
                     scan.nextLine();
 
                     System.out.print("ID: ");
                     int id = scan.nextInt();
-
                     scan.nextLine();
 
                     System.out.print("Name: ");
@@ -81,21 +78,15 @@ public class Main {
                     System.out.print("Course: ");
                     String course = scan.nextLine();
 
-                    Student student =
-                            new Student(id, name, course);
-
-                    registar.registerStudent(student);
-
+                    registar.registerStudent(new Student(id, name, course));
                     System.out.println("Student Registered");
                     break;
 
                 case 2:
-
                     scan.nextLine();
 
-                    System.out.print("Enter ID to update: ");
+                    System.out.print("ID: ");
                     int uid = scan.nextInt();
-
                     scan.nextLine();
 
                     System.out.print("New Name: ");
@@ -104,51 +95,34 @@ public class Main {
                     System.out.print("New Course: ");
                     String ucourse = scan.nextLine();
 
-                    Student updatedStudent =
-                            new Student(uid, uname, ucourse);
-
-                    registar.updateStudentRecord(updatedStudent);
-
-                    System.out.println("Student Updated");
+                    registar.updateStudentRecord(new Student(uid, uname, ucourse));
                     break;
 
                 case 3:
-
-                    scan.nextLine();
-
-                    System.out.print("Enter ID to delete: ");
+                    System.out.print("ID: ");
                     int did = scan.nextInt();
 
-                    Student deleteStudent =
-                            new Student(did, "", "");
-
-                    registar.deleteStudentRecord(deleteStudent);
-
-                    System.out.println("Student Deleted");
+                    registar.deleteStudentRecord(new Student(did, "", ""));
                     break;
 
                 case 4:
-
                     registar.displayStudents();
                     break;
 
                 case 5:
-
                     scan.nextLine();
 
                     System.out.print("Student ID: ");
                     int sid = scan.nextInt();
-
                     scan.nextLine();
 
-                    System.out.print("Student Name: ");
+                    System.out.print("Name: ");
                     String sname = scan.nextLine();
 
                     System.out.print("Course: ");
                     String scourse = scan.nextLine();
 
-                    Student enrolledStudent =
-                            new Student(sid, sname, scourse);
+                    Student student = new Student(sid, sname, scourse);
 
                     System.out.print("Section Name: ");
                     String sectionName = scan.nextLine();
@@ -156,115 +130,62 @@ public class Main {
                     System.out.print("Department Name: ");
                     String departmentName = scan.nextLine();
 
-                    List<Student> studentList =
-                            new ArrayList<>();
-
-                    List<Instructor> instructorList =
-                            new ArrayList<>();
-
-                    Section section = new Section(
-                            sectionName,
-                            studentList,
-                            instructorList
-                    );
-
-                    registar.enrollStudentinSection(
-                            enrolledStudent,
-                            section,
-                            studentList
-                    );
-
+                    registar.enrollStudentinSection(student, sectionName, departmentName);
                     break;
 
                 case 6:
-                    startMenu(scan, registar);
+                    return;
 
                 default:
-                    System.out.println("Invalid Choice");
+                    System.out.println("Invalid choice");
             }
         }
     }
 
-    public static void instructorMenu(Scanner scan, Registar registar) {
+    static void instructorMenu(Scanner scan, Registar registar) {
 
         while (true) {
+
             System.out.println("\n--- INSTRUCTOR MENU ---");
             System.out.println("1. Add Instructor");
-            System.out.println("2. Update Instructor");
-            System.out.println("3. Delete Instructor");
-            System.out.println("4. Display Instructors");
-            System.out.println("5. Assign Instructor to Section");
-            System.out.println("6. Back");
-            System.out.print("Choose: ");
+            System.out.println("2. Display Instructors");
+            System.out.println("3. Assign Instructor to Section");
+            System.out.println("4. Back");
 
             int choice = scan.nextInt();
 
             switch (choice) {
 
-                case 1 -> {
-                    System.out.print("Instructor ID: ");
+                case 1:
+                    System.out.print("ID: ");
                     int id = scan.nextInt();
                     scan.nextLine();
 
-                    System.out.print("Instructor Name: ");
+                    System.out.print("Name: ");
                     String name = scan.nextLine();
 
-                    Instructor instructor = new Instructor(id, name);
+                    registar.addInstructor(new Instructor(id, name));
+                    break;
 
-                    registar.addInstructor(instructor);
-                    System.out.println("Instructor added!");
-                }
-
-                case 2 -> {
-                    System.out.print("Instructor ID to update: ");
-                    int id = scan.nextInt();
-                    scan.nextLine();
-
-                    System.out.print("New Name: ");
-                    String name = scan.nextLine();
-
-                    Instructor updated = new Instructor(id, name);
-
-                    // You need update method in service (see note below)
-                    System.out.println("Update logic needed in service layer");
-                }
-
-                case 3 -> {
-                    System.out.print("Instructor ID to delete: ");
-                    int id = scan.nextInt();
-
-                    Instructor temp = new Instructor(id, "");
-
-                    // You need delete method in service
-                    System.out.println("Delete logic needed in service layer");
-                }
-
-                case 4 -> {
+                case 2:
                     for (Instructor i : registar.getInstructordetails()) {
                         System.out.println(i.getPersonID() + " - " + i.getPersonName());
                     }
-                }
+                    break;
 
-                case 5 -> {
+                case 3:
                     System.out.print("Instructor ID: ");
-                    int id = scan.nextInt();
+                    int iid = scan.nextInt();
+                    scan.nextLine();
 
                     System.out.print("Section Name: ");
-                    scan.nextLine();
-                    String sectionName = scan.nextLine();
+                    String section = scan.nextLine();
 
-                    Instructor instructor = new Instructor(id, "");
-                    Section section = new Section(sectionName, new ArrayList<>(), new ArrayList<>());
+                    registar.assignInstructortoSection(new Instructor(iid, ""), section);
+                    break;
 
-                    registar.assignInstructortoSection(instructor, section, new ArrayList<>());
-
-                    System.out.println("Instructor assigned!");
-                }
-
-                case 6 -> {
+                case 4:
                     startMenu(scan, registar);
-                }
-
             }
         }
     }
