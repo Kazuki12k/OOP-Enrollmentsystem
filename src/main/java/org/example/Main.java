@@ -41,8 +41,10 @@ public class Main {
                 instructorMenu(scan, registar);
 
             case 3:
-                // Department
+                departmentMenu(scan, registar);
             case 4:
+                sectionMenu(scan, registar);
+            case 5:
                 System.exit(0);
         }
     }
@@ -125,7 +127,6 @@ public class Main {
                     System.out.print("Section Name: ");
                     String sectionName = scan.nextLine();
 
-                    // FIND SECTION OBJECT
                     Section section = null;
 
                     for (Section s : registar.displaySections()) {
@@ -230,16 +231,80 @@ public class Main {
             }
         }
     }
-//    public static void departmentMenu(Scanner scan, Registar registar) {
+
+    public static void departmentMenu(Scanner scan, Registar registar) {
+
+        while (true) {
+            System.out.println("\n--- DEPARTMENT MENU ---");
+            System.out.println("1. Add Department");
+            System.out.println("2. Update Department");
+            System.out.println("3. Delete Department");
+            System.out.println("4. Display Departments");
+            System.out.println("5. Sections");
+            System.out.println("6. Back");
+
+            int choice = scan.nextInt();
+            scan.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Department ID: ");
+                    String id = scan.nextLine();
+
+                    System.out.print("Enter Department Name: ");
+                    String name = scan.nextLine();
+
+                    Department dept = new Department(id, name);
+                    registar.saveDepartment(dept);
+
+                    System.out.println("Department added.");
+
+                case 2 :
+                    System.out.print("Enter Department ID to update: ");
+                    String id2 = scan.nextLine();
+
+                    System.out.print("New Department Name: ");
+                    String name2 = scan.nextLine();
+
+                    Department dept2 = new Department(id2, name2);
+                    registar.updateDepartment(dept2);
+
+                    System.out.println("Department updated.");
+
+                case 3 :
+                    System.out.print("Enter Department ID to delete: ");
+                    String id3 = scan.nextLine();
+
+                    Department dept3 = new Department(id3, "");
+                    registar.deleteDepartment(dept3);
+
+                    System.out.println("Department deleted.");
+
+                case 4 :
+                    for (Department d : registar.displayDepartments()) {
+                        System.out.println(d.getDepartmentID() + " | " + d.getDepartmentName());
+                    }
+
+                case 5:
+                    sectionMenu(scan, registar);
+
+                case 6 :
+                    startMenu(scan,registar);
+            }
+        }
+    }
+
+//    static void sectionMenu(Scanner scan, Registar registar) {
 //
 //        while (true) {
-//            System.out.println("\n--- DEPARTMENT MENU ---");
-//            System.out.println("1. Add Department");
-//            System.out.println("2. Update Department");
-//            System.out.println("3. Delete Department");
-//            System.out.println("4. Display Departments");
+//
+//            System.out.println("\n--- SECTION MENU ---");
+//            System.out.println("1. Add Section");
+//            System.out.println("2. Update Section");
+//            System.out.println("3. Delete Section");
+//            System.out.println("4. Display Sections");
 //            System.out.println("5. Back");
-//            System.out.print("Choose: ");
 //
 //            int choice = scan.nextInt();
 //            scan.nextLine();
@@ -247,46 +312,52 @@ public class Main {
 //            switch (choice) {
 //
 //                case 1:
-//                    System.out.print("Enter Department ID: ");
-//                    String id = scan.nextLine();
 //
-//                    System.out.print("Enter Department Name: ");
-//                    String name = scan.nextLine();
+//                    System.out.print("Section Name: ");
+//                    String sectionName = scan.nextLine();
 //
-//                    Department dept = new Department(id, name);
-//                    registar.saveDepartment(dept);
+//                    System.out.print("Department Name: ");
+//                    String departmentName = scan.nextLine();
 //
-//                    System.out.println("Department added.");
+//                    registar.addSection(new Section(sectionName, departmentName, new ArrayList<>()));
 //
-//                case 2 :
-//                    System.out.print("Enter Department ID to update: ");
-//                    String id2 = scan.nextLine();
+//                    System.out.println("Section Added");
+//                    break;
 //
-//                    System.out.print("New Department Name: ");
-//                    String name2 = scan.nextLine();
+//                case 2:
 //
-//                    Department dept2 = new Department(id2, name2);
-//                    registar.updateDepartment(dept2);
+//                    System.out.print("New Section Name: ");
+//                    String newSection = scan.nextLine();
 //
-//                    System.out.println("Department updated.");
+//                    System.out.print("Department Name: ");
+//                    String newDepartment = scan.nextLine();
 //
-//                case 3 :
-//                    System.out.print("Enter Department ID to delete: ");
-//                    String id3 = scan.nextLine();
+//                    registar.updateSection(new Section(newSection, newDepartment, new ArrayList<>()));
 //
-//                    Department dept3 = new Department(id3, "");
-//                    registar.deleteDepartment(dept3);
+//                    System.out.println("Section Updated");
+//                    break;
 //
-//                    System.out.println("Department deleted.");
+//                case 3:
 //
-//                case 4 :
-//                    for (Department d : registar.displayDepartments()) {
-//                        System.out.println(d.getDepartmentID() + " | " + d.getDepartmentName());
+//                    System.out.print("Section Name: ");
+//                    String deleteSection = scan.nextLine();
+//
+//                    registar.deleteSection(new Section(deleteSection, "", new ArrayList<>()));
+//
+//                    System.out.println("Section Deleted");
+//                    break;
+//
+//                case 4:
+//
+//                    for (Section s : registar.displaySections()) {
+//
+//                        System.out.println(s.getSectionName() + " | "  + s.getDepartmentName());
 //                    }
 //
+//                    break;
 //
-//                case 5 :
-//                    startMenu(scan,registar);
+//                case 5:
+//                    return;
 //            }
 //        }
 //    }
