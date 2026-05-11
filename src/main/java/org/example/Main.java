@@ -24,8 +24,7 @@ public class Main {
         System.out.println("PLEASE SELECT ACTION");
         System.out.println("    1.Register Student");
         System.out.println("    2.Register Instructor");
-        System.out.println("    3.View Tuition");
-        System.out.println("    4.Exit");
+        System.out.println("    3.Exit");
         System.out.println("----------------------------");
 
         int ans = scan.nextInt();
@@ -33,28 +32,16 @@ public class Main {
         switch(ans){
 
             case 1:
-                scan.nextLine();
-
-                System.out.print("Enter Student ID: ");
-                int id = scan.nextInt();
-
-                scan.nextLine();
-                System.out.print("Enter Student Name: ");
-                String name = scan.nextLine();
-
-                System.out.print("Enter Course: ");
-                String course = scan.nextLine();
-
-                Student student = new Student(id, name, course);
-
-                registar.registerStudent(student);
-                System.out.println("Student Registered Successfully");
-                break;
-
+// student
             case 2:
-
+// instructor
+            case 3:
+             System.exit(0);
         }
 
+        static void studentMenu(Scanner scan, Registar registar){
+
+        }
 
     }
 }
