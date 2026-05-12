@@ -83,15 +83,15 @@ public class Registar {
     public void makePayment(double amount){
         tuitionServ.makePayment(amount);
     }
-    public double getBalance(){
+    public double getBalance(double tuition, double paid){
         return tuitionServ.getBalance();
     }
-    public boolean isFullyPaid(){
+    public boolean isFullyPaid(double balance){
        return tuitionServ.isFullyPaid();
     }
 
-    public void enrollStudentinSection(Student student, Section section){
-        enrollmentServ.enrollStudentinSection(student, section, section.getstudentList());
+    public void enrollStudentinSection(Student student, Section section, Course course){
+        enrollmentServ.enrollStudentinSection(student, section, course, section.getstudentList());
     }
     public void viewDepartmentHierarchy(Department department){
         enrollmentServ.viewDepartmentHierarchy(department);
@@ -101,8 +101,8 @@ public class Registar {
         instructorServ.addInstructor(instructor);
     }
 
-    public void assignInstructortoSection(Instructor instructor, Section section){
-        instructorServ.assignInstructortoSection(instructor, section, section.getinstructorList());
+    public void assignInstructortoSection(Instructor instructor, Section section, Course course){
+        instructorServ.assignInstructortoSection(instructor, section, course, section.getinstructorList());
     }
 
     public List<Instructor> getInstructordetails(){

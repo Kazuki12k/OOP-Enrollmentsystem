@@ -11,7 +11,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
     private final int MAXCAPACITY = 30;
 
-    public void enrollStudentinSection(Student student, Section section, List<Student> studentList) {
+    public void enrollStudentinSection(Student student, Section section,Course course, List<Student> studentList) {
 
         if (studentList.size() >= MAXCAPACITY) {
             System.out.println("ERROR: Section is already full (max 30 students).");

@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.Course;
 import org.example.model.Instructor;
 import org.example.model.Section;
 
@@ -18,7 +19,7 @@ public class InstructorServiceImpl implements InstructorService{
         instructorList.add(instructor);
     }
 
-    public void assignInstructortoSection(Instructor instructor, Section section, List<Instructor> instructorList){
+    public void assignInstructortoSection(Instructor instructor, Section section, Course course, List<Instructor> instructorList){
 
         section.getinstructorList().add(instructor);
         System.out.println("Instructor assigned to the Section");

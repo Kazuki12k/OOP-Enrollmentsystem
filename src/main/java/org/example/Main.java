@@ -70,7 +70,8 @@ public class Main {
             System.out.println("3. Delete Student");
             System.out.println("4. Display Students");
             System.out.println("5. Enroll Student in Section");
-            System.out.println("6. Back");
+            System.out.println("6. Tuition");
+            System.out.println("7. Back");
 
             int choice = scan.nextInt();
             scan.nextLine();
@@ -152,13 +153,16 @@ public class Main {
                     Course course = findCourse(registar, courseName);
 
                     if (course == null) {
-                        System.out.println();
+                        System.out.println("Course not found");
                     }
-                    registar.enrollStudentinSection(student, section);
+                    registar.enrollStudentinSection(student, section, course);
 
                     System.out.println("Student enrolled successfully!");
                     break;
+
                 case 6:
+                    tuitionMenu(scan, registar);
+                case 7:
                     startMenu(scan, registar);
 
                 default:
@@ -207,6 +211,9 @@ public class Main {
                     System.out.print("Section Name: ");
                     String sectionName = scan.nextLine();
 
+                    System.out.print("Course Name: ");
+                    String couName = scan.nextLine();
+
                     Instructor instructor = null;
 
                     for (Instructor i : registar.getInstructordetails()) {
@@ -223,9 +230,18 @@ public class Main {
 
                     Section section = findSection(registar, sectionName);
 
-                    if (section != null) {
-                        registar.assignInstructortoSection(instructor, section);
+                    if (section == null) {
+                        System.out.println("Section not found!");
+                        break;
                     }
+
+                    Course course = findCourse(registar, couName);
+
+                    if (course == null) {
+                        System.out.println("Course not found");
+                    }
+
+                        registar.assignInstructortoSection(instructor, section, course);
                     break;
 
                 case 4:
@@ -415,7 +431,69 @@ public class Main {
         }
     }
 
+    public static void tuitionMenu(Scanner scan, Registar registar) {
 
+        double tuition = 0;
+        double paid = 0;
+
+        while (true) {
+            System.out.println("\n=== TUITION MENU ===");
+            System.out.println("1. Calculate Tuition");
+            System.out.println("2. Make Payment");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Check Status");
+            System.out.println("0. Back");
+            System.out.print("Choice: ");
+
+            int choice = scan.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Units: ");
+                    double units = scan.nextDouble();
+
+                    System.out.print("Discount rate (0 if none): ");
+                    double discount = scan.nextDouble();
+
+                    tuition = registar.calculateTuitionFee(units, discount);
+                    paid = 0;
+
+                    System.out.println("Tuition computed: " + tuition);
+                    break;
+
+                case 2:
+                    System.out.print("Payment amount: ");
+                    double amount = scan.nextDouble();
+
+                    paid += amount;
+
+                    System.out.println("Payment recorded.");
+                    break;
+
+                case 3:
+                    double balance = registar.getBalance(tuition, paid);
+                    System.out.println("Balance: " + balance);
+                    break;
+
+                case 4:
+                    double bal = registar.getBalance(tuition, paid);
+
+                    if (registar.isFullyPaid(bal)) {
+                        System.out.println("FULLY PAID");
+                    } else {
+                        System.out.println("NOT FULLY PAID");
+                    }
+                    break;
+
+                case 0:
+                    studentMenu(scan, registar);
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
     static Section findSection(Registar registar, String sectionName) {
 
         for (Section s : registar.displaySections()) {
