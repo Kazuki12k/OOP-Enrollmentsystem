@@ -443,7 +443,6 @@ public class Main {
             System.out.println("3. Check Balance");
             System.out.println("4. Check Status");
             System.out.println("0. Back");
-            System.out.print("Choice: ");
 
             int choice = scan.nextInt();
 
