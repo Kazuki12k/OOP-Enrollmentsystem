@@ -5,6 +5,7 @@ import java.util.*;
 public class Department {
     String departmentID;
     String departmentName;
+    private List<Course> courseList;
     private List<Instructor> instructorList;
     private List<Section> sectionList;
 
@@ -48,5 +49,9 @@ public class Department {
 
     public List<Section> getSectionList() {
         return sectionList;
+    }
+
+    public List<Course> getCourseList(){
+        return courseList;
     }
 }

@@ -113,6 +113,7 @@ public class Main {
         }
     }
 
+    // ================= INSTRUCTOR =================
     static void instructorMenu(Scanner scan, Registar registar) {
 
         while (true) {
@@ -183,6 +184,7 @@ public class Main {
         }
     }
 
+    // ================= DEPARTMENT =================
     static void departmentMenu(Scanner scan, Registar registar) {
 
         while (true) {
@@ -222,6 +224,7 @@ public class Main {
         }
     }
 
+    // ================= SECTION =================
     static void sectionMenu(Scanner scan, Registar registar) {
 
         while (true) {
@@ -259,10 +262,14 @@ public class Main {
 
                 case 3:
                     return;
+
+                default:
+                    System.out.println("Invalid choice");
             }
         }
     }
 
+    // ================= HELPER =================
     static Section findSection(Registar registar, String sectionName) {
 
         for (Section s : registar.displaySections()) {

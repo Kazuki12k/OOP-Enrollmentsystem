@@ -1,36 +1,47 @@
 package org.example.service;
 
+import org.example.model.Course;
 import org.example.model.Department;
 import org.example.model.Section;
 import org.example.model.Student;
 
-import java.util.*;
+import java.util.List;
 
-public class EnrollmentServiceImpl implements EnrollmentService{
+public class EnrollmentServiceImpl implements EnrollmentService {
 
-    final int MAXCAPACITY = 30;
+    private final int MAXCAPACITY = 30;
 
+    public void enrollStudentinSection(Student student, Section section, List<Student> studentList) {
 
-    public void enrollStudentinSection(Student student, Section section, List<Student> studentList){
-        for(int i = 0; i < studentList.size(); i++){
+        if (studentList.size() >= MAXCAPACITY) {
+            System.out.println("ERROR: Section is already full (max 30 students).");
+            return;
+        }
 
-            if(studentList.size() >= MAXCAPACITY) {
-                System.out.println("Section already full");
+        for (Student s : studentList) {
+            if (s.getPersonID() == student.getPersonID()) {
+                System.out.println("ERROR: Student already enrolled in this section.");
                 return;
             }
-            else{
-                section.getstudentList().add(student);
-                System.out.println("Student Enrolled");
-            }
         }
+
+        studentList.add(student);
+        System.out.println("SUCCESS: Student Enrolled");
     }
 
-    public void viewDepartmentHierarchy(Department department){
+    public void viewDepartmentHierarchy(Department department) {
+
         System.out.println("Department: " + department.getDepartmentName());
-        for(Section section : department.getSectionList()) {
-            System.out.println("Section " + section.getSectionName());
-            for(Student student : section.getstudentList()) {
-                System.out.println("Students: " + student.getPersonName());
+
+        for (Course course : department.getCourseList()) {
+            System.out.println("  Course: " + course.getCoursename());
+
+        for (Section section : department.getSectionList()) {
+            System.out.println("Section: " + section.getSectionName());
+
+            for (Student student : section.getstudentList()) {
+                System.out.println(" - " + student.getPersonName());
+                }
             }
         }
     }

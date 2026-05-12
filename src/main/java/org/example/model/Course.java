@@ -4,8 +4,9 @@ public class Course {
     int courseID;
     String coursename;
     String courseprogram;
+    private Department department;
 
-    public Course(int ID, String name, String program) {
+    public Course(int ID, String name, String program, Department department) {
         courseID = ID;
         coursename = name;
         courseprogram = program;
@@ -33,6 +34,14 @@ public class Course {
 
     public String getCourseprogram() {
         return courseprogram;
+    }
+
+    public void setDepartment(Department department){
+        this.department = department;
+    }
+
+    public Department getDepartment(){
+        return department;
     }
 
     @Override

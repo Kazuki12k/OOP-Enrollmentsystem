@@ -2,7 +2,7 @@ package org.example.model;
 
 import java.util.*;
 
-public class Section extends Department {
+public class Section extends Department{
 
     private String sectionName;
     private static final int MAXCAPACITY = 30;
@@ -11,7 +11,7 @@ public class Section extends Department {
 
     public Section(String sectionName, String departmentName, List<Student> studentList, List<Instructor> instructorList) {
 
-        super(departmentName); // FIX: properly set Department
+        super(departmentName);
         this.sectionName = sectionName;
         this.studentList = studentList;
         this.instructorList = instructorList;
