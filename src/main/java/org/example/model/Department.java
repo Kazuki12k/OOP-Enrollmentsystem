@@ -9,10 +9,10 @@ public class Department {
     private List<Instructor> instructorList;
     private List<Section> sectionList;
 
-    public Department(String departmentName){
+    public Department(String departmentName, List<Course> courseList, List<Section> sectionList){
         this.departmentName = departmentName;
-        this.instructorList = new ArrayList<>();
-        this.sectionList = new ArrayList<>();
+        this.courseList = courseList;
+        this.sectionList = sectionList;
     }
 
     public Department(String departmentID, String departmentName) {
@@ -20,6 +20,7 @@ public class Department {
         this.departmentName = departmentName;
         this.instructorList = new ArrayList<>();
         this.sectionList = new ArrayList<>();
+        this.courseList = new ArrayList<>();
     }
 
     public Department(String departmentName, List<Section> sectionList){
@@ -53,5 +54,25 @@ public class Department {
 
     public List<Course> getCourseList(){
         return courseList;
+    }
+
+    public void setDepartmentID(String departmentID){
+        this.departmentID = departmentID;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public void setCourseList (List<Course> courseList){
+        this.courseList = courseList;
+    }
+
+    public void setInstructorList (List<Instructor> instructorList){
+        this.instructorList = instructorList;
+    }
+
+    public void setSectionList(List<Section> sectionList){
+        this.sectionList = sectionList;
     }
 }

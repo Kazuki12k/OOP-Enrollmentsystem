@@ -30,17 +30,19 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     }
 
     public void viewDepartmentHierarchy(Department department) {
-
         System.out.println("Department: " + department.getDepartmentName());
 
         for (Course course : department.getCourseList()) {
+
             System.out.println("  Course: " + course.getCoursename());
 
-        for (Section section : department.getSectionList()) {
-            System.out.println("Section: " + section.getSectionName());
+            for (Section section : course.getSectionList()) {
 
-            for (Student student : section.getstudentList()) {
-                System.out.println(" - " + student.getPersonName());
+                System.out.println("    Section: " + section.getSectionName());
+
+                for (Student student : section.getstudentList()) {
+
+                    System.out.println("      - " + student.getPersonName());
                 }
             }
         }

@@ -5,14 +5,14 @@ import java.util.*;
 public class Section{
 
     private String sectionName;
-    private Department department;
+    private Course course;
     private static final int MAXCAPACITY = 30;
     private List<Student> studentList;
     private List<Instructor> instructorList;
 
-    public Section(String sectionName, Department department, List<Student> studentList, List<Instructor> instructorList) {
+    public Section(String sectionName, Course course, List<Student> studentList, List<Instructor> instructorList) {
 
-        this.department = department;
+        this.course = course;
         this.sectionName = sectionName;
         this.studentList = studentList;
         this.instructorList = instructorList;
@@ -46,11 +46,11 @@ public class Section{
     public void setInstructorList(List<Instructor> instructorList) {
         this.instructorList = instructorList;
     }
-    public void setDepartment(Department department){
-        this.department = department;
+    public void setCourse(Course course){
+        this.course = course;
     }
 
-    public Department getDepartment(){
-        return department;
+    public Course getCourse(){
+        return course;
     }
 }

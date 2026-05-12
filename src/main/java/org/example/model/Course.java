@@ -1,16 +1,21 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
     private int courseID;
     private String coursename;
     private String courseprogram;
     private Department department;
+    private List<Section> sectionList;
 
     public Course(int ID, String name, String program, Department department) {
         courseID = ID;
         coursename = name;
         courseprogram = program;
         this.department = department;
+        this.sectionList = new ArrayList<>();
     }
 
     public void setCourseID(int courseID){
@@ -43,6 +48,14 @@ public class Course {
 
     public Department getDepartment(){
         return department;
+    }
+
+    public List<Section> getSectionList(){
+        return sectionList;
+    }
+
+    public void setSectionList(List<Section> sectionList){
+        this.sectionList = sectionList;
     }
 
     @Override

@@ -260,7 +260,8 @@ public class Main {
             System.out.println("\n--- DEPARTMENT MENU ---");
             System.out.println("1. Add Department");
             System.out.println("2. Display Departments");
-            System.out.println("3. Back");
+            System.out.println("3. View Department Hierarchy");
+            System.out.println("4. Back");
 
             int choice = scan.nextInt();
             scan.nextLine();
@@ -284,6 +285,32 @@ public class Main {
                     break;
 
                 case 3:
+
+                    System.out.print("Department Name: ");
+                    String deptName = scan.nextLine();
+
+                    Department department = null;
+
+                    for (Department d : registar.displayDepartments()) {
+
+                        if (d.getDepartmentName().equalsIgnoreCase(deptName)) {
+                            department = d;
+                            break;
+                        }
+                    }
+
+                    if (department == null) {
+
+                        System.out.println("Department not found.");
+
+                    } else {
+
+                        registar.viewDepartmentHierarchy(department);
+                    }
+
+                    break;
+
+                case 4:
                     startMenu(scan, registar);
 
                 default:
@@ -307,29 +334,31 @@ public class Main {
             switch (choice) {
 
                 case 1:
-
                     System.out.print("Section Name: ");
                     String name = scan.nextLine();
 
-                    System.out.print("Department Name: ");
-                    String deptName = scan.nextLine();
+                    System.out.print("Course Name: ");
+                    String courseName = scan.nextLine();
 
-                    Department department = findDepartment(registar, deptName);
+                    Course course = findCourse(registar, courseName);
 
-                    if (department == null) {
-                        System.out.println("Department not found!");
-                        break;
+                    if (course == null) {
+                    System.out.println("Course not found!");
+                    break;
                     }
 
-                    registar.addSection(
-                            new Section(name, department, new ArrayList<>(), new ArrayList<>()));
+                    Section section = new Section(name, course, new ArrayList<>(), new ArrayList<>());
+
+                    registar.addSection(section);
+
+                    course.getSectionList().add(section);
 
                     System.out.println("Section added successfully!");
                     break;
 
                 case 2:
                     for (Section s : registar.displaySections()) {
-                        System.out.println(s.getSectionName() + " | " + s.getDepartment().getDepartmentName());
+                        System.out.println(s.getSectionName() + " | " + s.getCourse().getCoursename());
                     }
                     break;
 
@@ -381,7 +410,7 @@ public class Main {
 
                     Course newCourse = new Course(id, name, program, dept);
                     registar.addCourse(newCourse);
-
+                    dept.getCourseList().add(newCourse);
                     System.out.println("Course added successfully!");
                     break;
 
