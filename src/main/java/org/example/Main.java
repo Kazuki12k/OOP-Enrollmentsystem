@@ -6,46 +6,50 @@ import org.example.service.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
 
-        List<Course> courseList = new ArrayList<>();
-        List<Instructor> instructorList = new ArrayList<>();
-        List<Section> sectionList = new ArrayList<>();
-        List<Department> departmentList = new ArrayList<>();
-        List<Student> studentList = new ArrayList<>();
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
 
         Registar registar = new Registar(new StudentRegistration(), new CourseRegistration(), new DepartmentRegistration(), new EnrollmentServiceImpl(), new TuitionFeePayment(), new InstructorServiceImpl(), new SectionRegistration());
 
-        startMenu(scan, registar);
+        while (true) {
 
-    }
+            System.out.println("\n=== MAIN MENU ===");
+            System.out.println("1. Student");
+            System.out.println("2. Instructor");
+            System.out.println("3. Department");
+            System.out.println("4. Section");
+            System.out.println("5. Exit");
 
-    static void startMenu(Scanner scan, Registar registar) {
-        System.out.println("WELCOME TO ENROLLMENT SYSTEM");
-        System.out.println("----------------------------");
-        System.out.println("PLEASE SELECT MENU");
-        System.out.println("    1.Student");
-        System.out.println("    2.Instructor");
-        System.out.println("    3.Department");
-        System.out.println("    4.Exit");
-        System.out.println("----------------------------");
+            int choice = scan.nextInt();
+            scan.nextLine();
 
-        int ans = scan.nextInt();
+            switch (choice) {
 
-        switch(ans){
+                case 1:
+                    studentMenu(scan, registar);
+                    break;
 
-            case 1:
-                studentMenu(scan, registar);
-            case 2:
-                instructorMenu(scan, registar);
+                case 2:
+                    instructorMenu(scan, registar);
+                    break;
 
-            case 3:
-                departmentMenu(scan, registar);
-            case 4:
-                sectionMenu(scan, registar);
-            case 5:
-                System.exit(0);
+                case 3:
+                    departmentMenu(scan, registar);
+                    break;
+
+                case 4:
+                    sectionMenu(scan, registar);
+                    break;
+
+                case 5:
+                    System.out.println("Goodbye!");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
         }
     }
 
@@ -58,16 +62,14 @@ public class Main {
             System.out.println("2. Update Student");
             System.out.println("3. Delete Student");
             System.out.println("4. Display Students");
-            System.out.println("5. Enroll Student in Section");
-            System.out.println("6. Back");
+            System.out.println("5. Back");
 
             int choice = scan.nextInt();
+            scan.nextLine();
 
             switch (choice) {
 
                 case 1:
-                    scan.nextLine();
-
                     System.out.print("ID: ");
                     int id = scan.nextInt();
                     scan.nextLine();
@@ -79,12 +81,9 @@ public class Main {
                     String course = scan.nextLine();
 
                     registar.registerStudent(new Student(id, name, course));
-                    System.out.println("Student Registered");
                     break;
 
                 case 2:
-                    scan.nextLine();
-
                     System.out.print("ID: ");
                     int uid = scan.nextInt();
                     scan.nextLine();
@@ -101,7 +100,6 @@ public class Main {
                 case 3:
                     System.out.print("ID: ");
                     int did = scan.nextInt();
-
                     registar.deleteStudentRecord(new Student(did, "", ""));
                     break;
 
@@ -110,45 +108,7 @@ public class Main {
                     break;
 
                 case 5:
-                    scan.nextLine();
-
-                    System.out.print("Student ID: ");
-                    int sid = scan.nextInt();
-                    scan.nextLine();
-
-                    System.out.print("Name: ");
-                    String sname = scan.nextLine();
-
-                    System.out.print("Course: ");
-                    String scourse = scan.nextLine();
-
-                    Student student = new Student(sid, sname, scourse);
-
-                    System.out.print("Section Name: ");
-                    String sectionName = scan.nextLine();
-
-                    Section section = null;
-
-                    for (Section s : registar.displaySections()) {
-                        if (s.getSectionName().equalsIgnoreCase(sectionName)) {
-                            section = s;
-                            break;
-                        }
-                    }
-
-                    if (section == null) {
-                        System.out.println("Section not found!");
-                        break;
-                    }
-
-                        registar.enrollStudentinSection(student, section);
-                    break;
-
-                case 6:
                     return;
-
-                default:
-                    System.out.println("Invalid choice");
             }
         }
     }
@@ -160,10 +120,11 @@ public class Main {
             System.out.println("\n--- INSTRUCTOR MENU ---");
             System.out.println("1. Add Instructor");
             System.out.println("2. Display Instructors");
-            System.out.println("3. Assign Instructor to Section");
+            System.out.println("3. Assign to Section");
             System.out.println("4. Back");
 
             int choice = scan.nextInt();
+            scan.nextLine();
 
             switch (choice) {
 
@@ -176,7 +137,6 @@ public class Main {
                     String name = scan.nextLine();
 
                     registar.addInstructor(new Instructor(id, name));
-                    System.out.println("Instructor Successfully Registered");
                     break;
 
                 case 2:
@@ -191,7 +151,7 @@ public class Main {
                     scan.nextLine();
 
                     System.out.print("Section Name: ");
-                    String sectionname = scan.nextLine();
+                    String sectionName = scan.nextLine();
 
                     Instructor instructor = null;
 
@@ -203,45 +163,34 @@ public class Main {
                     }
 
                     if (instructor == null) {
-                        System.out.println("Instructor not found!");
+                        System.out.println("Instructor not found");
                         break;
                     }
 
-                    Section section = null;
+                    Section section = findSection(registar, sectionName);
 
-                    for (Section s : registar.displaySections()) {
-                        if (s.getSectionName().equalsIgnoreCase(sectionname)) {
-                            section = s;
-                            break;
-                        }
+                    if (section != null) {
+                        registar.assignInstructortoSection(instructor, section);
                     }
-
-                    if (section == null) {
-                        System.out.println("Section not found!");
-                        break;
-                    }
-
-                    registar.assignInstructortoSection(instructor, section);
-
-                    System.out.println("Instructor assigned successfully.");
                     break;
 
                 case 4:
-                    startMenu(scan, registar);
+                    return;
+
+                default:
+                    System.out.println("Invalid choice");
             }
         }
     }
 
-    public static void departmentMenu(Scanner scan, Registar registar) {
+    static void departmentMenu(Scanner scan, Registar registar) {
 
         while (true) {
+
             System.out.println("\n--- DEPARTMENT MENU ---");
             System.out.println("1. Add Department");
-            System.out.println("2. Update Department");
-            System.out.println("3. Delete Department");
-            System.out.println("4. Display Departments");
-            System.out.println("5. Sections");
-            System.out.println("6. Back");
+            System.out.println("2. Display Departments");
+            System.out.println("3. Back");
 
             int choice = scan.nextInt();
             scan.nextLine();
@@ -249,116 +198,80 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                    System.out.print("Enter Department ID: ");
+                    System.out.print("ID: ");
                     String id = scan.nextLine();
 
-                    System.out.print("Enter Department Name: ");
+                    System.out.print("Name: ");
                     String name = scan.nextLine();
 
-                    Department dept = new Department(id, name);
-                    registar.saveDepartment(dept);
+                    registar.saveDepartment(new Department(id, name));
+                    break;
 
-                    System.out.println("Department added.");
-
-                case 2 :
-                    System.out.print("Enter Department ID to update: ");
-                    String id2 = scan.nextLine();
-
-                    System.out.print("New Department Name: ");
-                    String name2 = scan.nextLine();
-
-                    Department dept2 = new Department(id2, name2);
-                    registar.updateDepartment(dept2);
-
-                    System.out.println("Department updated.");
-
-                case 3 :
-                    System.out.print("Enter Department ID to delete: ");
-                    String id3 = scan.nextLine();
-
-                    Department dept3 = new Department(id3, "");
-                    registar.deleteDepartment(dept3);
-
-                    System.out.println("Department deleted.");
-
-                case 4 :
+                case 2:
                     for (Department d : registar.displayDepartments()) {
                         System.out.println(d.getDepartmentID() + " | " + d.getDepartmentName());
                     }
+                    break;
 
-                case 5:
-                    sectionMenu(scan, registar);
+                case 3:
+                    return;
 
-                case 6 :
-                    startMenu(scan,registar);
+                default:
+                    System.out.println("Invalid choice");
             }
         }
     }
 
-//    static void sectionMenu(Scanner scan, Registar registar) {
-//
-//        while (true) {
-//
-//            System.out.println("\n--- SECTION MENU ---");
-//            System.out.println("1. Add Section");
-//            System.out.println("2. Update Section");
-//            System.out.println("3. Delete Section");
-//            System.out.println("4. Display Sections");
-//            System.out.println("5. Back");
-//
-//            int choice = scan.nextInt();
-//            scan.nextLine();
-//
-//            switch (choice) {
-//
-//                case 1:
-//
-//                    System.out.print("Section Name: ");
-//                    String sectionName = scan.nextLine();
-//
-//                    System.out.print("Department Name: ");
-//                    String departmentName = scan.nextLine();
-//
-//                    registar.addSection(new Section(sectionName, departmentName, new ArrayList<>()));
-//
-//                    System.out.println("Section Added");
-//                    break;
-//
-//                case 2:
-//
-//                    System.out.print("New Section Name: ");
-//                    String newSection = scan.nextLine();
-//
-//                    System.out.print("Department Name: ");
-//                    String newDepartment = scan.nextLine();
-//
-//                    registar.updateSection(new Section(newSection, newDepartment, new ArrayList<>()));
-//
-//                    System.out.println("Section Updated");
-//                    break;
-//
-//                case 3:
-//
-//                    System.out.print("Section Name: ");
-//                    String deleteSection = scan.nextLine();
-//
-//                    registar.deleteSection(new Section(deleteSection, "", new ArrayList<>()));
-//
-//                    System.out.println("Section Deleted");
-//                    break;
-//
-//                case 4:
-//
-//                    for (Section s : registar.displaySections()) {
-//
-//                        System.out.println(s.getSectionName() + " | "  + s.getDepartmentName());
-//                    }
-//
-//                    break;
-//
-//                case 5:
-//                    return;
-//            }
-//        }
-//    }
+    static void sectionMenu(Scanner scan, Registar registar) {
+
+        while (true) {
+
+            System.out.println("\n--- SECTION MENU ---");
+            System.out.println("1. Add Section");
+            System.out.println("2. Display Sections");
+            System.out.println("3. Back");
+
+            int choice = scan.nextInt();
+            scan.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Section Name: ");
+                    String name = scan.nextLine();
+
+                    System.out.print("Department Name: ");
+                    String dept = scan.nextLine();
+
+                    registar.addSection(new Section(
+                            name,
+                            dept,
+                            new ArrayList<>(),
+                            new ArrayList<>()
+                    ));
+                    break;
+
+                case 2:
+                    for (Section s : registar.displaySections()) {
+                        System.out.println(s.getSectionName() + " | " + s.getDepartmentName());
+                    }
+                    break;
+
+                case 3:
+                    return;
+            }
+        }
+    }
+
+    static Section findSection(Registar registar, String sectionName) {
+
+        for (Section s : registar.displaySections()) {
+            if (s.getSectionName().equalsIgnoreCase(sectionName)) {
+                return s;
+            }
+        }
+
+        System.out.println("Section not found!");
+        return null;
+    }
 }

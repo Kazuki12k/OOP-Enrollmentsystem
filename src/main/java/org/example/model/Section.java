@@ -2,19 +2,20 @@ package org.example.model;
 
 import java.util.*;
 
-public class Section extends Department{
+public class Section extends Department {
+
     private String sectionName;
-    final int MAXCAPACITY = 30;
+    private static final int MAXCAPACITY = 30;
     private List<Student> studentList;
     private List<Instructor> instructorList;
 
-    public Section (Department department) {
-        super(department.departmentName);
-    }
-    public Section(String sectionName, List<Student> studentList, List<Instructor> instructorList){
+    public Section(String sectionName, String departmentName, List<Student> studentList, List<Instructor> instructorList) {
+
+        super(departmentName); // FIX: properly set Department
         this.sectionName = sectionName;
         this.studentList = studentList;
         this.instructorList = instructorList;
+
     }
 
     public String getSectionName() {
@@ -25,11 +26,11 @@ public class Section extends Department{
         return MAXCAPACITY;
     }
 
-    public List<Student> getstudentList(){
+    public List<Student> getstudentList() {
         return studentList;
     }
 
-    public List<Instructor> getinstructorList(){
+    public List<Instructor> getinstructorList() {
         return instructorList;
     }
 
