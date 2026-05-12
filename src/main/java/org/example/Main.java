@@ -69,7 +69,8 @@ public class Main {
             System.out.println("2. Update Student");
             System.out.println("3. Delete Student");
             System.out.println("4. Display Students");
-            System.out.println("5. Back");
+            System.out.println("5. Enroll Student in Section");
+            System.out.println("6. Back");
 
             int choice = scan.nextInt();
             scan.nextLine();
@@ -84,10 +85,10 @@ public class Main {
                     System.out.print("Name: ");
                     String name = scan.nextLine();
 
-                    System.out.print("Course: ");
-                    String course = scan.nextLine();
+                    System.out.print("Program: ");
+                    String program = scan.nextLine();
 
-                    registar.registerStudent(new Student(id, name, course));
+                    registar.registerStudent(new Student(id, name, program));
                     break;
 
                 case 2:
@@ -123,6 +124,9 @@ public class Main {
                     System.out.print("Section Name: ");
                     String secName = scan.nextLine();
 
+                    System.out.print("Course Name: ");
+                    String courseName = scan.nextLine();
+
                     Student student = null;
 
                     for (Student s : registar.displayStudents()) {
@@ -145,6 +149,11 @@ public class Main {
                         break;
                     }
 
+                    Course course = findCourse(registar, courseName);
+
+                    if (course == null) {
+                        System.out.println();
+                    }
                     registar.enrollStudentinSection(student, section);
 
                     System.out.println("Student enrolled successfully!");
@@ -427,6 +436,18 @@ public class Main {
             }
         }
 
+        return null;
+    }
+
+    static Course findCourse(Registar registar, String courseName) {
+
+        for (Course c : registar.displayCourses()) {
+            if (c.getCoursename().equalsIgnoreCase(courseName)) {
+                return c;
+            }
+        }
+
+        System.out.println("Course not found!");
         return null;
     }
 }
