@@ -19,7 +19,4 @@ public class Student extends Person{
         return StudentProgram;
     }
 
-    public void mainTask() {
-        System.out.println("Studying");
-    }
 }

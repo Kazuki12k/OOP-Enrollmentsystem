@@ -1,9 +1,11 @@
 package org.example.service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.example.model.Student;
 
-public class StudentRegistration {
+public class StudentRegistration implements StudentREG{
 
     private ArrayList<Student> studentlist = new ArrayList<Student>();
 
@@ -11,13 +13,8 @@ public class StudentRegistration {
         studentlist.add(student);
     }
 
-    public void displayAll(){
-        for(Student s: studentlist){
-            System.out.println(s.getPersonID());
-            System.out.println(s.getPersonName());
-            System.out.println(s.getStudentProgram());
-
-        }
+    public List<Student> displayStudent(){
+        return studentlist.stream().toList();
     }
 
     public void updateStudent(Student student){

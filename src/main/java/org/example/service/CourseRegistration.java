@@ -1,22 +1,20 @@
 package org.example.service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.example.model.Course;
 
 
-public class CourseRegistration {
+public class CourseRegistration implements CourseREG{
     private ArrayList<Course> courselist = new ArrayList<Course>();
 
     public void addCourse(Course course) {
         courselist.add(course);
     }
 
-    public void DisplayAll(){
-        for(Course c: courselist){
-            System.out.println(c.getCourseID());
-            System.out.println(c.getCoursename());
-            System.out.println(c.getCourseprogram());
-        }
+    public List<Course> DisplayCourses(){
+        return courselist.stream().toList();
     }
 
     public void updateCourse(Course course) {

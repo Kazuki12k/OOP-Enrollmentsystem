@@ -24,6 +24,4 @@ public abstract class Person {
         return PersonName;
     }
 
-    public abstract void mainTask();
-
 }

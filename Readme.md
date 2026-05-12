@@ -4,8 +4,9 @@
 
 **Rebancos,Rafael T.**
 
+- Encapsulation
 
-
+![Encapsulation](src/main/resources/Images/Screenshot%202026-05-08%20234010.png)
 - Inheritance
 
 ![Screenshot 2026-03-07 1.png](src/main/resources/Images/Screenshot%202026-03-07%201.png)
@@ -16,4 +17,18 @@
 ![Screenshot 2026-02-14 1.png](src/main/resources/Images/Screenshot%202026-03-14%201.png)
 ![Screenshot 2026-02-14 1.png](src/main/resources/Images/Screenshot%202026-03-14%202.png)
 ![Screenshot 2026-02-14 1.png](src/main/resources/Images/Screenshot%202026-03-14%203.png)
+
+- Interface
+![Interface 1](src/main/resources/Images/Screenshot%202026-05-08%20233556.png)
+![Interface 2](src/main/resources/Images/)
+![Interface 3](src/main/resources/Images/)
+![Interface 4](src/main/resources/Images/)
+![Interface 5](src/main/resources/Images/)
+![Interface 6](src/main/resources/Images/Interface%20Finals.png)
+
+-JUnit Testing
+
+
+-Git Mastery
+
 

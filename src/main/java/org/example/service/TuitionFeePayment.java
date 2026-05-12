@@ -1,6 +1,6 @@
 package org.example.service;
 
-public class TuitionFeePayment {
+public class TuitionFeePayment implements TuitionService {
 
     private final double PRICE_PER_UNIT = 2000;
     private double balance = 0;
