@@ -20,15 +20,7 @@
 
 - Interface
 ![Interface 1](src/main/resources/Images/Screenshot%202026-05-08%20233556.png)
-![Interface 2](src/main/resources/Images/)
-![Interface 3](src/main/resources/Images/)
-![Interface 4](src/main/resources/Images/)
-![Interface 5](src/main/resources/Images/)
 ![Interface 6](src/main/resources/Images/Interface%20Finals.png)
 
--JUnit Testing
-
-
--Git Mastery
 
 
