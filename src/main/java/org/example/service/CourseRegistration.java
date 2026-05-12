@@ -1,6 +1,8 @@
 package org.example.service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.example.model.Course;
 
 
@@ -11,10 +13,8 @@ public class CourseRegistration implements CourseREG{
         courselist.add(course);
     }
 
-    public void DisplayCourses(){
-        for(Course c: courselist){
-            System.out.println(c.getCourseID() + " | " + c.getCoursename() + " | " + c.getCourseprogram());
-        }
+    public List<Course> DisplayCourses(){
+        return courselist.stream().toList();
     }
 
     public void updateCourse(Course course) {

@@ -50,9 +50,8 @@ public class Registar {
         return "Course added";
     }
 
-    public String displayCourses(){
-        courseREG.DisplayCourses();
-        return "Displaying Courses";
+    public List<Course> displayCourses(){
+        return courseREG.DisplayCourses();
     }
 
     public String updateCourse(Course course) {

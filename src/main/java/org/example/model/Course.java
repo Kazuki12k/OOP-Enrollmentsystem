@@ -1,15 +1,16 @@
 package org.example.model;
 
 public class Course {
-    int courseID;
-    String coursename;
-    String courseprogram;
+    private int courseID;
+    private String coursename;
+    private String courseprogram;
     private Department department;
 
     public Course(int ID, String name, String program, Department department) {
         courseID = ID;
         coursename = name;
         courseprogram = program;
+        this.department = department;
     }
 
     public void setCourseID(int courseID){
@@ -48,6 +49,7 @@ public class Course {
     public String toString() {
         return "Course ID: " + courseID +
                 " | Name: " + coursename +
-                " | Program: " + courseprogram;
+                " | Program: " + courseprogram +
+                " | Department: " + department;
     }
 }
