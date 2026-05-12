@@ -2,16 +2,17 @@ package org.example.model;
 
 import java.util.*;
 
-public class Section extends Department{
+public class Section{
 
     private String sectionName;
+    private Department department;
     private static final int MAXCAPACITY = 30;
     private List<Student> studentList;
     private List<Instructor> instructorList;
 
-    public Section(String sectionName, String departmentName, List<Student> studentList, List<Instructor> instructorList) {
+    public Section(String sectionName, Department department, List<Student> studentList, List<Instructor> instructorList) {
 
-        super(departmentName);
+        this.department = department;
         this.sectionName = sectionName;
         this.studentList = studentList;
         this.instructorList = instructorList;
@@ -44,5 +45,12 @@ public class Section extends Department{
 
     public void setInstructorList(List<Instructor> instructorList) {
         this.instructorList = instructorList;
+    }
+    public void setDepartment(Department department){
+        this.department = department;
+    }
+
+    public Department getDepartment(){
+        return department;
     }
 }

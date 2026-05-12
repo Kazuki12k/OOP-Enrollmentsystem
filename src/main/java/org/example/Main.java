@@ -52,7 +52,7 @@ public class Main {
 
                     case 6:
                         System.out.println("Goodbye!");
-                        return;
+                        System.exit(0);
 
                     default:
                         System.out.println("Invalid choice");
@@ -115,6 +115,41 @@ public class Main {
                     break;
 
                 case 5:
+
+                    System.out.print("Student ID: ");
+                    int sid = scan.nextInt();
+                    scan.nextLine();
+
+                    System.out.print("Section Name: ");
+                    String secName = scan.nextLine();
+
+                    Student student = null;
+
+                    for (Student s : registar.displayStudents()) {
+
+                        if (s.getPersonID() == sid) {
+                            student = s;
+                            break;
+                        }
+                    }
+
+                    if (student == null) {
+                        System.out.println("Student not found!");
+                        break;
+                    }
+
+                    Section section = findSection(registar, secName);
+
+                    if (section == null) {
+                        System.out.println("Section not found!");
+                        break;
+                    }
+
+                    registar.enrollStudentinSection(student, section);
+
+                    System.out.println("Student enrolled successfully!");
+                    break;
+                case 6:
                     startMenu(scan, registar);
 
                 default:
@@ -247,18 +282,29 @@ public class Main {
             switch (choice) {
 
                 case 1:
+
                     System.out.print("Section Name: ");
                     String name = scan.nextLine();
 
                     System.out.print("Department Name: ");
-                    String dept = scan.nextLine();
+                    String deptName = scan.nextLine();
 
-                    registar.addSection(new Section(name, dept, new ArrayList<>(), new ArrayList<>()));
+                    Department department = findDepartment(registar, deptName);
+
+                    if (department == null) {
+                        System.out.println("Department not found!");
+                        break;
+                    }
+
+                    registar.addSection(
+                            new Section(name, department, new ArrayList<>(), new ArrayList<>()));
+
+                    System.out.println("Section added successfully!");
                     break;
 
                 case 2:
                     for (Section s : registar.displaySections()) {
-                        System.out.println(s.getSectionName() + " | " + s.getDepartmentName());
+                        System.out.println(s.getSectionName() + " | " + s.getDepartment().getDepartmentName());
                     }
                     break;
 

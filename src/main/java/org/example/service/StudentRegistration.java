@@ -1,6 +1,8 @@
 package org.example.service;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.example.model.Student;
 
 public class StudentRegistration implements StudentREG{
@@ -11,10 +13,8 @@ public class StudentRegistration implements StudentREG{
         studentlist.add(student);
     }
 
-    public void displayStudents(){
-        for(Student s: studentlist){
-            System.out.println(s.getPersonID() + " | " + s.getPersonName() + " | " + s.getStudentProgram());
-        }
+    public List<Student> displayStudent(){
+        return studentlist.stream().toList();
     }
 
     public void updateStudent(Student student){

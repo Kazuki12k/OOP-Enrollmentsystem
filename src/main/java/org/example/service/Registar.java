@@ -29,9 +29,8 @@ public class Registar {
         return "Added";
     }
 
-    public String displayStudents(){
-        studentREG.displayStudents();
-        return "Displaying Students";
+    public List<Student> displayStudents(){
+        return studentREG.displayStudent();
     }
 
     public String updateStudentRecord(Student student) {
